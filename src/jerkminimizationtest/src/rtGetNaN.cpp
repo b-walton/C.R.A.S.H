@@ -5,11 +5,11 @@
 //
 // File: rtGetNaN.cpp
 //
-// Code generated for Simulink model 'JerkMinimizationTest'.
+// Code generated for Simulink model 'JerkMinimizationTestOpenLoop'.
 //
-// Model version                  : 8.20
+// Model version                  : 8.22
 // Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
-// C/C++ source code generated on : Wed Nov 15 17:37:14 2023
+// C/C++ source code generated on : Thu Nov 16 10:48:31 2023
 //
 // Target selection: ert.tlc
 // Embedded hardware selection: Generic->Unspecified (assume 32-bit Generic)

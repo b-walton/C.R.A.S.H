@@ -1,16 +1,16 @@
 #include "slros_initialize.h"
 
 ros::NodeHandle * SLROSNodePtr;
-const std::string SLROSNodeName = "JerkMinimizationTest";
+const std::string SLROSNodeName = "JerkMinimizationTestOpenLoop";
 
-// For Block JerkMinimizationTest/Subscribe
-SimulinkSubscriber<std_msgs::Float64, SL_Bus_JerkMinimizationTest_std_msgs_Float64> Sub_JerkMinimizationTest_166;
+// For Block JerkMinimizationTestOpenLoop/Subscribe
+SimulinkSubscriber<std_msgs::Float64, SL_Bus_JerkMinimizationTestOpenLoop_std_msgs_Float64> Sub_JerkMinimizationTestOpenLoop_166;
 
-// For Block JerkMinimizationTest/Subscribe1
-SimulinkSubscriber<std_msgs::Float64, SL_Bus_JerkMinimizationTest_std_msgs_Float64> Sub_JerkMinimizationTest_124;
+// For Block JerkMinimizationTestOpenLoop/Subscribe1
+SimulinkSubscriber<std_msgs::Float64, SL_Bus_JerkMinimizationTestOpenLoop_std_msgs_Float64> Sub_JerkMinimizationTestOpenLoop_124;
 
-// For Block JerkMinimizationTest/Publish
-SimulinkPublisher<std_msgs::Float64, SL_Bus_JerkMinimizationTest_std_msgs_Float64> Pub_JerkMinimizationTest_121;
+// For Block JerkMinimizationTestOpenLoop/Publish
+SimulinkPublisher<std_msgs::Float64, SL_Bus_JerkMinimizationTestOpenLoop_std_msgs_Float64> Pub_JerkMinimizationTestOpenLoop_121;
 
 void slros_node_init(int argc, char** argv)
 {

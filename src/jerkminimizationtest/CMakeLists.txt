@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.9)
-project(jerkminimizationtest)
+project(jerkminimizationtestopenloop)
 set(CMAKE_VERBOSE_MAKEFILE ON)
 # Set CMAKE_BUILD_TYPE
 set(CMAKE_BUILD_TYPE Release)
@@ -48,7 +48,7 @@ include_directories(
   ${PROJECT_SOURCE_DIR}
   ${Boost_INCLUDE_DIRS}
   ${catkin_INCLUDE_DIRS}
-  "include/jerkminimizationtest"
+  "include/jerkminimizationtestopenloop"
 )
 set (CMAKE_SKIP_BUILD_RPATH false)
 set (CMAKE_BUILD_WITH_INSTALL_RPATH true)
@@ -59,10 +59,10 @@ file(GLOB ${PROJECT_NAME}_C_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} ${PROJECT_SOU
 ## Get list of .cpp files in project source directory
 file(GLOB ${PROJECT_NAME}_CPP_SOURCES RELATIVE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/*.cpp)
 # Declare executable - Node
-add_executable(JerkMinimizationTest
+add_executable(JerkMinimizationTestOpenLoop
   src/slros_generic_param.cpp
-  src/JerkMinimizationTest.cpp
-  src/JerkMinimizationTest_data.cpp
+  src/JerkMinimizationTestOpenLoop.cpp
+  src/JerkMinimizationTestOpenLoop_data.cpp
   src/main.cpp
   src/rosnodeinterface.cpp
   src/rtGetInf.cpp
@@ -72,11 +72,11 @@ add_executable(JerkMinimizationTest
   src/slros_initialize.cpp
 )
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-#target_compile_options(JerkMinimizationTest PUBLIC  $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>: -Wall -Wextra -Wpedantic >)
+#target_compile_options(JerkMinimizationTestOpenLoop PUBLIC  $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>: -Wall -Wextra -Wpedantic >)
 endif()
-target_compile_options(JerkMinimizationTest PUBLIC 
+target_compile_options(JerkMinimizationTestOpenLoop PUBLIC 
   $<$<OR:$<COMPILE_LANGUAGE:CXX>,$<COMPILE_LANGUAGE:C>>:
-  -DMODEL=JerkMinimizationTest
+  -DMODEL=JerkMinimizationTestOpenLoop
   -DNUMST=2
   -DNCSTATES=2
   -DHAVESTDIO
@@ -100,34 +100,34 @@ target_compile_options(JerkMinimizationTest PUBLIC
 ## Add cmake target dependencies of the executable/library
 ## as an example, message headers may need to be generated before nodes
 add_dependencies(
-  JerkMinimizationTest
+  JerkMinimizationTestOpenLoop
   ${catkin_EXPORTED_TARGETS}
 )
-target_include_directories(JerkMinimizationTest PUBLIC
+target_include_directories(JerkMinimizationTestOpenLoop PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 ## Specify libraries to link a library or executable target against
 target_link_libraries(
-  JerkMinimizationTest 
+  JerkMinimizationTestOpenLoop 
     ${catkin_LIBRARIES}
     ${Boost_LIBRARIES}
     ${CMAKE_DL_LIBS}
 )
-install(TARGETS JerkMinimizationTest
+install(TARGETS JerkMinimizationTestOpenLoop
   EXPORT export_${PROJECT_NAME}
   DESTINATION lib/${PROJECT_NAME})
 foreach(file_i ${CUDA_BINS})
 add_custom_command(
-                   TARGET JerkMinimizationTest
+                   TARGET JerkMinimizationTestOpenLoop
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND}
-                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/codegen/exe/JerkMinimizationTest/${file_i}
+                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/codegen/exe/JerkMinimizationTestOpenLoop/${file_i}
 				   )
 add_custom_command(
-                   TARGET JerkMinimizationTest
+                   TARGET JerkMinimizationTestOpenLoop
                    POST_BUILD
                    COMMAND ${CMAKE_COMMAND}
-                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/JerkMinimizationTest_ert_rtw/${file_i}
+                   ARGS -E copy ${PROJECT_SOURCE_DIR}/src/${file_i} ${CATKIN_DEVEL_PREFIX}/JerkMinimizationTestOpenLoop_ert_rtw/${file_i}
 				   )
 endforeach(file_i)
-# Generated on Wed Nov 15 17:38:21 2023
+# Generated on Thu Nov 16 10:49:27 2023

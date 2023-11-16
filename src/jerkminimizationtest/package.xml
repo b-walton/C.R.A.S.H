@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>jerkminimizationtest</name>
+  <name>jerkminimizationtestopenloop</name>
   <version>1.0.0</version>
   <description>TODO</description>
   <maintainer email="rosuser@test.com">ROS User</maintainer>
@@ -12,4 +12,4 @@
   <exec_depend>roscpp</exec_depend>
   <exec_depend>std_msgs</exec_depend>
 </package>
-<!-- Generated on Wed Nov 15 17:38:21 2023 -->
+<!-- Generated on Thu Nov 16 10:49:27 2023 -->

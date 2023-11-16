@@ -1,11 +1,11 @@
 //
 // File rosnodeinterface.cpp
 //
-// Code generated for Simulink model 'JerkMinimizationTest'.
+// Code generated for Simulink model 'JerkMinimizationTestOpenLoop'.
 //
-// Model version                  : 8.20
+// Model version                  : 8.22
 // Simulink Coder version         : 23.2 (R2023b) 01-Aug-2023
-// C/C++ source code generated on : Wed Nov 15 17:38:10 2023
+// C/C++ source code generated on : Thu Nov 16 10:49:13 2023
 //
 
 #ifdef _MSC_VER
@@ -30,7 +30,7 @@
 
 #endif                                 //_MSC_VER
 
-#include "JerkMinimizationTest.h"
+#include "JerkMinimizationTestOpenLoop.h"
 #include "rosnodeinterface.h"
 #include <thread>
 #include <chrono>
@@ -65,11 +65,11 @@ namespace ros
     {
       try {
         mNode = std::make_shared<ros::NodeHandle>();
-        ROS_INFO("** Starting the model \"JerkMinimizationTest\" **\n");
+        ROS_INFO("** Starting the model \"JerkMinimizationTestOpenLoop\" **\n");
 
         // initialize the model which will initialize the publishers and subscribers
-        rtmSetErrorStatus(JerkMinimizationTest_M, (NULL));
-        JerkMinimizationTest_initialize();
+        rtmSetErrorStatus(JerkMinimizationTestOpenLoop_M, (NULL));
+        JerkMinimizationTestOpenLoop_initialize();
 
         // create the threads for the rates in the Model
         mBaseRateThread = std::make_shared<std::thread>(&NodeInterface::
@@ -98,13 +98,13 @@ namespace ros
 
 #ifndef rtmGetStopRequested
 
-      return (!(rtmGetErrorStatus(JerkMinimizationTest_M)
+      return (!(rtmGetErrorStatus(JerkMinimizationTestOpenLoop_M)
                 == (NULL)));
 
 #else
 
-      return (!(rtmGetErrorStatus(JerkMinimizationTest_M)
-                == (NULL)) || rtmGetStopRequested(JerkMinimizationTest_M));
+      return (!(rtmGetErrorStatus(JerkMinimizationTestOpenLoop_M)
+                == (NULL)) || rtmGetStopRequested(JerkMinimizationTestOpenLoop_M));
 
 #endif
 
@@ -122,7 +122,7 @@ namespace ros
           mSchedulerTimer.reset();
         }
 
-        JerkMinimizationTest_terminate();
+        JerkMinimizationTestOpenLoop_terminate();
         mNode.reset();
       }
     }
@@ -140,7 +140,7 @@ namespace ros
     // Base-rate task
     void NodeInterface::baseRateTask(void)
     {
-      mRunModel = (rtmGetErrorStatus(JerkMinimizationTest_M) ==
+      mRunModel = (rtmGetErrorStatus(JerkMinimizationTestOpenLoop_M) ==
                    (NULL));
       while (mRunModel) {
         mBaseRateSem.wait();
@@ -153,7 +153,7 @@ namespace ros
 
         if (!mRunModel)
           break;
-        JerkMinimizationTest_step(
+        JerkMinimizationTestOpenLoop_step(
           );
         mRunModel = !NodeInterface::getStopRequestedFlag();
       }
